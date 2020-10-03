@@ -1,0 +1,2 @@
+# HsReconnectTool
+Hearthstone Reconnect Tool
