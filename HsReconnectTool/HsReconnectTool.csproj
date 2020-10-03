@@ -68,6 +68,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="FloatReconnectButton.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FloatReconnectButton.Designer.cs">
+      <DependentUpon>FloatReconnectButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="HsHelper.cs" />
     <Compile Include="HsState.cs" />
     <Compile Include="iphlpapi.cs" />
@@ -79,6 +85,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FloatReconnectButton.resx">
+      <DependentUpon>FloatReconnectButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>

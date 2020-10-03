@@ -13,19 +13,14 @@ namespace HsReconnectTool
 {
     public partial class MainWindow : Form
     {
+        FloatReconnectButton floatReconnectButton;
+
         public MainWindow()
         {
             InitializeComponent();
+            floatReconnectButton = new FloatReconnectButton();
+            floatReconnectButton.Visible = float_button_checkBox.Checked;
         }
-        /*
-        private T[] ConcatArrays<T>(T[] array1, T[] array2)
-        {
-            T[] newArray = new T[array1.Length + array2.Length];
-            Array.Copy(array1, newArray, array1.Length);
-            Array.Copy(array2, 0, newArray, array1.Length, array2.Length);
-            return newArray;
-        }
-        */
         private void MainWindow_Load(object sender, EventArgs e)
         {
             UpdateHsInfo();
@@ -68,6 +63,11 @@ namespace HsReconnectTool
         private void github_link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/Vaiz/HsReconnectTool");
+        }
+
+        private void float_reconnect_button_CheckedChanged(object sender, EventArgs e)
+        {
+            floatReconnectButton.Visible = float_button_checkBox.Checked;
         }
     }
 }

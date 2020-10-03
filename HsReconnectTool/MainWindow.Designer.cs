@@ -36,6 +36,7 @@
             this.connection_count_value_label = new System.Windows.Forms.Label();
             this.close_connection_button = new System.Windows.Forms.Button();
             this.github_link = new System.Windows.Forms.LinkLabel();
+            this.float_button_checkBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // hs_exe_label
@@ -120,11 +121,24 @@
             this.github_link.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.github_link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.github_link_LinkClicked);
             // 
+            // float_button_checkBox
+            // 
+            this.float_button_checkBox.AutoSize = true;
+            this.float_button_checkBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.float_button_checkBox.Location = new System.Drawing.Point(40, 140);
+            this.float_button_checkBox.Name = "float_button_checkBox";
+            this.float_button_checkBox.Size = new System.Drawing.Size(412, 36);
+            this.float_button_checkBox.TabIndex = 8;
+            this.float_button_checkBox.Text = "Enable float reconnect button";
+            this.float_button_checkBox.UseVisualStyleBackColor = true;
+            this.float_button_checkBox.CheckedChanged += new System.EventHandler(this.float_reconnect_button_CheckedChanged);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 334);
+            this.Controls.Add(this.float_button_checkBox);
             this.Controls.Add(this.github_link);
             this.Controls.Add(this.close_connection_button);
             this.Controls.Add(this.connection_count_value_label);
@@ -134,7 +148,6 @@
             this.Controls.Add(this.hs_exe_label);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(790, 390);
             this.Name = "MainWindow";
             this.Text = "HS Reconnect Tool";
@@ -153,6 +166,7 @@
         private System.Windows.Forms.Label connection_count_value_label;
         private System.Windows.Forms.Button close_connection_button;
         private System.Windows.Forms.LinkLabel github_link;
+        private System.Windows.Forms.CheckBox float_button_checkBox;
     }
 }
 

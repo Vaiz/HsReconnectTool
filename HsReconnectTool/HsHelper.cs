@@ -40,7 +40,8 @@ namespace HsReconnectTool
         public static void CloseConnectionsToServer()
         {
             HsState state = GetHsState();
-            foreach(var c in state.Connections)
+            Console.WriteLine("Closing connections... HS running: {0}", state.IsRunning);
+            foreach (var c in state.Connections)
             {
                 if (IPAddress.IsLoopback(c.LocalAddress) || IPAddress.IsLoopback(c.RemoteAddress))
                     continue;
