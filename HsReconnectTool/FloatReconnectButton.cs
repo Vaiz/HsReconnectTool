@@ -21,6 +21,7 @@ namespace HsReconnectTool
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.Visible = false;
+            this.ShowInTaskbar = false;
 
             close_connection_label.MouseDown += new MouseEventHandler(Disconnect);
             close_connection_label.MouseDown += new MouseEventHandler(OnMouseDown);
@@ -30,6 +31,18 @@ namespace HsReconnectTool
             new ToolTip().SetToolTip(close_connection_label, "LMC - reconnect\r\nRMC - move window");
         }
 
+        protected override CreateParams CreateParams
+        {
+            // remove window from task view
+            get
+            {
+                const int WS_EX_TOOLWINDOW = 0x80;
+
+                var Params = base.CreateParams;
+                Params.ExStyle |= WS_EX_TOOLWINDOW;
+                return Params;
+            }
+        }
 
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int LPAR);

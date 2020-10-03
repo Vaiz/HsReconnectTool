@@ -127,9 +127,9 @@
             this.float_button_checkBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.float_button_checkBox.Location = new System.Drawing.Point(40, 140);
             this.float_button_checkBox.Name = "float_button_checkBox";
-            this.float_button_checkBox.Size = new System.Drawing.Size(412, 36);
+            this.float_button_checkBox.Size = new System.Drawing.Size(451, 36);
             this.float_button_checkBox.TabIndex = 8;
-            this.float_button_checkBox.Text = "Enable float reconnect button";
+            this.float_button_checkBox.Text = "Enable floating reconnect button";
             this.float_button_checkBox.UseVisualStyleBackColor = true;
             this.float_button_checkBox.CheckedChanged += new System.EventHandler(this.float_reconnect_button_CheckedChanged);
             // 
