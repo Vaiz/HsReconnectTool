@@ -28,7 +28,7 @@ namespace HsReconnectTool
             close_connection_label.MouseUp += new MouseEventHandler(OnMouseUp);
             close_connection_label.MouseMove += new MouseEventHandler(ProcessMouseMove);
 
-            new ToolTip().SetToolTip(close_connection_label, "LMC - reconnect\r\nRMC - move window");
+            new ToolTip().SetToolTip(close_connection_label, "Click to reconnect\r\nHold right button to move this");
         }
 
         protected override CreateParams CreateParams
