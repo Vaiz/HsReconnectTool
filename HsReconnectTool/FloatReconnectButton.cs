@@ -33,7 +33,9 @@ namespace HsReconnectTool
             disconnected_label.MouseUp += new MouseEventHandler(OnMouseUp);
             disconnected_label.MouseMove += new MouseEventHandler(ProcessMouseMove);
 
-            new ToolTip().SetToolTip(close_connection_label, "Click to reconnect\r\nHold right button to move this");
+            string toolTipString = "Click to reconnect\r\nHold right button to move this";
+            new ToolTip().SetToolTip(close_connection_label, toolTipString);
+            new ToolTip().SetToolTip(disconnected_label, toolTipString);
 
             updateTimer.Interval = 1000;
             updateTimer.Tick += new EventHandler(UpdateButtonOnTimer);
