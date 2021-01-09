@@ -15,6 +15,7 @@ namespace HsReconnectTool
     {
         bool dragModeActive = false;
         Point dragStartPoint;
+        System.Windows.Forms.Timer updateTimer = new Timer();
 
         public FloatReconnectButton()
         {
@@ -28,7 +29,14 @@ namespace HsReconnectTool
             close_connection_label.MouseUp += new MouseEventHandler(OnMouseUp);
             close_connection_label.MouseMove += new MouseEventHandler(ProcessMouseMove);
 
+            disconnected_label.MouseDown += new MouseEventHandler(OnMouseDown);
+            disconnected_label.MouseUp += new MouseEventHandler(OnMouseUp);
+            disconnected_label.MouseMove += new MouseEventHandler(ProcessMouseMove);
+
             new ToolTip().SetToolTip(close_connection_label, "Click to reconnect\r\nHold right button to move this");
+
+            updateTimer.Interval = 1000;
+            updateTimer.Tick += new EventHandler(UpdateButtonOnTimer);
         }
 
         protected override CreateParams CreateParams
@@ -53,6 +61,9 @@ namespace HsReconnectTool
             {
                 ReleaseCapture();
                 HsHelper.CloseConnectionsToServer();
+                updateTimer.Stop();
+                UpdateButtonState(true);
+                updateTimer.Start();
             }
         }
 
@@ -79,6 +90,47 @@ namespace HsReconnectTool
                 this.Location = new Point(
                     p.X - this.dragStartPoint.X,
                     p.Y - this.dragStartPoint.Y);
+            }
+        }
+
+        protected override void SetVisibleCore(bool value)
+        {
+            if (value)
+            {
+                UpdateButtonState(HsHelper.GetHsState().RemoteConnectionCount == 0);
+                updateTimer.Start();
+            }
+            else
+            {
+                updateTimer.Stop();
+            }
+            base.SetVisibleCore(value);
+        }
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            updateTimer.Stop();
+            base.OnClosing(e);
+        }
+
+        void UpdateButtonOnTimer(object sender, EventArgs e)
+        {
+            UpdateButtonState(HsHelper.GetHsState().RemoteConnectionCount == 0);
+        }
+        void UpdateButtonState(bool disconnected)
+        {
+            if (disconnected)
+            {
+                close_connection_label.Enabled = false;
+                close_connection_label.Visible = false;
+                disconnected_label.Enabled = true;
+                disconnected_label.Visible = true;
+            }
+            else
+            {
+                close_connection_label.Enabled = true;
+                close_connection_label.Visible = true;
+                disconnected_label.Enabled = false;
+                disconnected_label.Visible = false;
             }
         }
     }
