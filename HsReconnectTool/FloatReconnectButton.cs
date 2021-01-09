@@ -45,13 +45,7 @@ namespace HsReconnectTool
         }
 
         [DllImportAttribute("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int LPAR);
-        [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
-
-
-        const int WM_NCLBUTTONDOWN = 0xA1;
-        const int HT_CAPTION = 0x2;  //this indicates that the action takes place on the title bar
 
         private void Disconnect(object sender, MouseEventArgs e)
         {
