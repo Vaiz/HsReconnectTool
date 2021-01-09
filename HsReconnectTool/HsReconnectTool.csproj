@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Util.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="FloatReconnectButton.cs">
       <SubType>Form</SubType>

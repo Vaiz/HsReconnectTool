@@ -43,11 +43,8 @@ namespace HsReconnectTool
             Console.WriteLine("Closing connections... HS running: {0}", state.IsRunning);
             foreach (var c in state.Connections)
             {
-                if (IPAddress.IsLoopback(c.LocalAddress) || IPAddress.IsLoopback(c.RemoteAddress))
+                if (!Util.IsRemoteConnection(c))
                     continue;
-                if (c.dwLocalAddr == 0 || c.dwRemoteAddr == 0)
-                    continue;
-
 
                 Console.WriteLine("Closing connection. {0}", c);
                 String error = iphlpapi.CloseRemoteIP(c.ToTcpRow());

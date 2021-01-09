@@ -37,6 +37,13 @@ namespace HsReconnectTool
                 return connections.Count;
             }
         }
+        public int RemoteConnectionCount
+        {
+            get
+            {
+                return connections.Count(c => Util.IsRemoteConnection(c));
+            }
+        }
         public List<iphlpapi.MIB_TCPROW_OWNER_PID> Connections
         {
             get
