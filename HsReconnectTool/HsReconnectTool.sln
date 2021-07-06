@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HsReconnectTool", "HsReconnectTool.csproj", "{DC7CB814-A6C4-471F-93A5-375803E1365E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HsReconnectTool", "HsReconnectTool\HsReconnectTool.csproj", "{DC7CB814-A6C4-471F-93A5-375803E1365E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
