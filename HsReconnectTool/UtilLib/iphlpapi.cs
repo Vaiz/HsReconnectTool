@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace HsReconnectTool
 {
-    class iphlpapi
+    public class iphlpapi
     {
         public enum TCP_TABLE_CLASS
         {
