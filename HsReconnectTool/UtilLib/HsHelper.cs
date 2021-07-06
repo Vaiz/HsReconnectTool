@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace HsReconnectTool
 {
-    class HsHelper
+    public class HsHelper
     {
         static Process[] GetHsProcesses()
         {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 namespace HsReconnectTool
 {
-    class HsState
+    public class HsState
     {
         Process[] processes;
         List<iphlpapi.MIB_TCPROW_OWNER_PID> connections;

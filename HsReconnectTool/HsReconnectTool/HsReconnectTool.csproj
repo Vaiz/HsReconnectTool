@@ -68,17 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Util.cs" />
-    <Compile Include="Constants.cs" />
     <Compile Include="FloatReconnectButton.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FloatReconnectButton.Designer.cs">
       <DependentUpon>FloatReconnectButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="HsHelper.cs" />
-    <Compile Include="HsState.cs" />
-    <Compile Include="iphlpapi.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +126,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UtilLib\UtilLib.csproj">
+      <Project>{7b508abd-d7a7-4759-8ebb-f5ca4dfadc11}</Project>
+      <Name>UtilLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
