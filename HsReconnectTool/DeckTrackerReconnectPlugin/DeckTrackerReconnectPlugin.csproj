@@ -56,8 +56,10 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Presentation" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -67,6 +69,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FloatReconnectButton.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FloatReconnectButton.Designer.cs">
+      <DependentUpon>FloatReconnectButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReconnectPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -75,6 +83,11 @@
       <Project>{7b508abd-d7a7-4759-8ebb-f5ca4dfadc11}</Project>
       <Name>UtilLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FloatReconnectButton.resx">
+      <DependentUpon>FloatReconnectButton.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
