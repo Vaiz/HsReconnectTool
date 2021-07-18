@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net;
+using System.Security.Principal;
 
 namespace HsReconnectTool
 {
-    class Util
+    public class Util
     {
         static public bool IsRemoteConnection(iphlpapi.MIB_TCPROW_OWNER_PID connection)
         {
@@ -17,6 +13,14 @@ namespace HsReconnectTool
                 return false;
 
             return true;
+        }
+        static public bool IsElevated()
+        {
+            using (WindowsIdentity identity = WindowsIdentity.GetCurrent())
+            {
+                WindowsPrincipal principal = new WindowsPrincipal(identity);
+                return principal.IsInRole(WindowsBuiltInRole.Administrator);
+            }
         }
     }
 }

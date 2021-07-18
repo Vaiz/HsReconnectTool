@@ -61,6 +61,7 @@
     <Reference Include="System.Windows.Controls.Ribbon" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Presentation" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -75,6 +76,7 @@
     <Compile Include="FloatReconnectButton.Designer.cs">
       <DependentUpon>FloatReconnectButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="PluginImpl.cs" />
     <Compile Include="ReconnectPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
