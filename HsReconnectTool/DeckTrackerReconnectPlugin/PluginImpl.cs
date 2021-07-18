@@ -47,8 +47,8 @@ namespace DeckTrackerReconnectPlugin
 
         public void Dispose()
         {
-            floatReconnectButton.Dispose();
-            ((IDisposable)menu).Dispose();
+            if (floatReconnectButton != null)
+                floatReconnectButton.Dispose();
         }
     }
 }
