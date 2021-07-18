@@ -13,6 +13,22 @@ namespace DeckTrackerReconnectPlugin
     public class ReconnectPlugin : Hearthstone_Deck_Tracker.Plugins.IPlugin
     {
         FloatReconnectButton floatReconnectButton;
+        MenuItem menu;
+
+        public ReconnectPlugin()
+        {
+            menu = new MenuItem();
+            menu.Header = "Reconnect button";
+            menu.IsCheckable = true;
+            menu.IsChecked = true;
+            menu.Checked += UpdateReconnectButton;
+            menu.Unchecked += UpdateReconnectButton;
+        }
+
+        private void UpdateReconnectButton(object sender, RoutedEventArgs e)
+        {
+            floatReconnectButton.Visible = menu.IsChecked;
+        }
 
         public string Name => "ReconnectPlugin";
 
@@ -24,9 +40,9 @@ namespace DeckTrackerReconnectPlugin
 
         public Version Version => Version.Parse("1.0.0");
 
-        public System.Windows.Controls.MenuItem MenuItem => null;
+        public MenuItem MenuItem => menu;
 
-        public void OnButtonPress() {}
+        public void OnButtonPress() { }
 
         public void OnLoad()
         {
