@@ -50,5 +50,12 @@ namespace UtilLib
                 return connections;
             }
         }
+        public string BinaryPath
+        {
+            get
+            {
+                return processes.First().MainModule.FileName;
+            }
+        }
     }
 }

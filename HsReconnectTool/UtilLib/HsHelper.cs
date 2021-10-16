@@ -2,14 +2,23 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Net;
-using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UtilLib
 {
     public class HsHelper
     {
+        private static readonly HsHelper singletonInst = new HsHelper();
+        Firewall firewall;
+
+        public static HsHelper Instance
+        {
+            get
+            {
+                return singletonInst;
+            }
+        }
         static Process[] ListHsProcesses()
         {
             return Process.GetProcessesByName(Constants.HsProcessName);
@@ -33,16 +42,28 @@ namespace UtilLib
             return connections;
         }
 
-        public static HsState GetHsState()
+        public HsState UpdateHsState()
         {
             Process[] processes = ListHsProcesses();
             List<iphlpapi.MIB_TCPROW_OWNER_PID> connections = ListHsConnections(processes);
-            return new HsState(processes, connections);
+            var state = new HsState(processes, connections);
+
+            if (state.IsRunning && firewall == null)
+            {
+                firewall = Firewall.TryCreate(state.BinaryPath);
+            }
+
+            return state;
         }
-        public static void CloseConnectionsToServer()
+
+        void DisconnectViaFirewall()
         {
-            HsState state = GetHsState();
-            Console.WriteLine("Closing connections... HS running: {0}", state.IsRunning);
+            firewall.EnableRule();
+            System.Threading.Thread.Sleep(4000);
+            firewall.DisableRule();
+        }
+        void DisconnectViaTcpMessage(HsState state)
+        {
             foreach (var c in state.Connections)
             {
                 if (!Util.IsRemoteConnection(c))
@@ -52,6 +73,20 @@ namespace UtilLib
                 String error = iphlpapi.CloseRemoteIP(c.ToTcpRow());
                 if (null != error)
                     MessageBox.Show(String.Format("Cannot close connection {0}\r\nError: {1}", c, error));
+            }
+        }
+        public void CloseConnectionsToServer()
+        {
+            HsState state = UpdateHsState();
+            Console.WriteLine("Closing connections... HS running: {0}", state.IsRunning);
+
+            if (firewall != null)
+            {
+                Task.Factory.StartNew(DisconnectViaFirewall);
+            }
+            else
+            {
+                DisconnectViaTcpMessage(state);
             }
         }
 

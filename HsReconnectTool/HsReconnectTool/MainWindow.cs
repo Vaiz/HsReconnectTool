@@ -27,7 +27,7 @@ namespace HsReconnectTool
 
         private void UpdateHsStatus()
         {
-            var hs = HsHelper.GetHsState();
+            var hs = HsHelper.Instance.UpdateHsState();
 
             if (hs.IsRunning)
             {
@@ -50,7 +50,7 @@ namespace HsReconnectTool
 
         private void close_connsection_button_Click(object sender, EventArgs e)
         {
-            HsHelper.CloseConnectionsToServer();
+            HsHelper.Instance.CloseConnectionsToServer();
             UpdateHsInfo();
         }
 
