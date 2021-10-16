@@ -17,7 +17,7 @@ namespace DeckTrackerReconnectPlugin
 
         public string Author => "Vaiz";
 
-        public Version Version => Version.Parse("1.0.0");
+        public Version Version => Version.Parse("2.0.0");
 
         public MenuItem MenuItem => plugin != null ? plugin.Menu : null;
 
