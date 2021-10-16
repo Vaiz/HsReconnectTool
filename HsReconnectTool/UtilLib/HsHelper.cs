@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -23,10 +23,12 @@ namespace HsReconnectTool
             List<iphlpapi.MIB_TCPROW_OWNER_PID> connections = iphlpapi.GetAllTCPConnections();
             connections = connections.Where(c => pids.Contains(c.ProcessId)).ToList();
 
+            /*
             foreach (var c in connections)
             {
                 Console.WriteLine(c.ToString());
             }
+            */
 
             return connections;
         }
