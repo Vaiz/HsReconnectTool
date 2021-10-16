@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Net;
-namespace HsReconnectTool
+
+namespace UtilLib
 {
     public class HsState
     {

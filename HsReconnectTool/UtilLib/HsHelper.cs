@@ -6,7 +6,7 @@ using System.Net;
 using System.Text;
 using System.Windows.Forms;
 
-namespace HsReconnectTool
+namespace UtilLib
 {
     public class HsHelper
     {

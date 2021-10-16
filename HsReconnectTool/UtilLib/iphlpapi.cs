@@ -6,7 +6,7 @@ using System.Linq;
 
 // http://pinvoke.net/default.aspx/iphlpapi/GetExtendedTcpTable.html
 
-namespace HsReconnectTool
+namespace UtilLib
 {
     public class iphlpapi
     {

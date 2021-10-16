@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Security.Principal;
 
-namespace HsReconnectTool
+namespace UtilLib
 {
     public class Util
     {
