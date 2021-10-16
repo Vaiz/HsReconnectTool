@@ -95,7 +95,7 @@ namespace HsReconnectTool
         {
             if (value)
             {
-                UpdateButtonState(HsHelper.Instance.UpdateHsState().RemoteConnectionCount == 0);
+                UpdateButtonState(!HsHelper.Instance.IsConnectedToServer);
                 updateTimer.Start();
             }
             else
@@ -112,7 +112,7 @@ namespace HsReconnectTool
 
         void UpdateButtonOnTimer(object sender, EventArgs e)
         {
-            UpdateButtonState(HsHelper.Instance.UpdateHsState().RemoteConnectionCount == 0);
+            UpdateButtonState(!HsHelper.Instance.IsConnectedToServer);
         }
         void UpdateButtonState(bool disconnected)
         {

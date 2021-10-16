@@ -36,7 +36,14 @@ namespace UtilLib
                 return connections.Count;
             }
         }
-        public int RemoteConnectionCount
+        public bool IsConnectedToServer
+        {
+            get
+            {
+                return RemoteConnectionCount > 0;
+            }
+        }
+        int RemoteConnectionCount
         {
             get
             {

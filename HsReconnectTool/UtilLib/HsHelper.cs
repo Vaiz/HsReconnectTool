@@ -9,8 +9,11 @@ namespace UtilLib
 {
     public class HsHelper
     {
-        private static readonly HsHelper singletonInst = new HsHelper();
+        static readonly HsHelper singletonInst = new HsHelper();
+        static readonly int DisconnectTimeoutMs = 4000;
+
         Firewall firewall;
+        bool isForceDisconnected = false;
 
         public static HsHelper Instance
         {
@@ -55,15 +58,31 @@ namespace UtilLib
 
             return state;
         }
+        public bool IsConnectedToServer
+        {
+            get
+            {
+                if (isForceDisconnected)
+                    return false;
+                return UpdateHsState().IsConnectedToServer;
+            }
+        }
 
         void DisconnectViaFirewall()
         {
+            isForceDisconnected = true;
+
             firewall.EnableRule();
-            System.Threading.Thread.Sleep(4000);
+            System.Threading.Thread.Sleep(DisconnectTimeoutMs);
             firewall.DisableRule();
+
+            isForceDisconnected = false;
         }
-        void DisconnectViaTcpMessage(HsState state)
+        void DisconnectViaTcpMessage()
         {
+            HsState state = UpdateHsState();
+            isForceDisconnected = true;
+
             foreach (var c in state.Connections)
             {
                 if (!Util.IsRemoteConnection(c))
@@ -74,11 +93,13 @@ namespace UtilLib
                 if (null != error)
                     MessageBox.Show(String.Format("Cannot close connection {0}\r\nError: {1}", c, error));
             }
+
+            System.Threading.Thread.Sleep(DisconnectTimeoutMs);
+            isForceDisconnected = false;
         }
         public void CloseConnectionsToServer()
         {
-            HsState state = UpdateHsState();
-            Console.WriteLine("Closing connections... HS running: {0}", state.IsRunning);
+            Console.WriteLine("Closing connections...");
 
             if (firewall != null)
             {
@@ -86,7 +107,7 @@ namespace UtilLib
             }
             else
             {
-                DisconnectViaTcpMessage(state);
+                Task.Factory.StartNew(DisconnectViaTcpMessage);
             }
         }
 
