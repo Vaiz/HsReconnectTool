@@ -10,11 +10,11 @@ namespace UtilLib
 {
     public class HsHelper
     {
-        static Process[] GetHsProcesses()
+        static Process[] ListHsProcesses()
         {
             return Process.GetProcessesByName(Constants.HsProcessName);
         }
-        static List<iphlpapi.MIB_TCPROW_OWNER_PID> GetHsConnections(Process[] processes)
+        static List<iphlpapi.MIB_TCPROW_OWNER_PID> ListHsConnections(Process[] processes)
         {
             var pids = new HashSet<uint>();
             foreach (var p in processes)
@@ -35,8 +35,8 @@ namespace UtilLib
 
         public static HsState GetHsState()
         {
-            Process[] processes = GetHsProcesses();
-            List<iphlpapi.MIB_TCPROW_OWNER_PID> connections = GetHsConnections(processes);
+            Process[] processes = ListHsProcesses();
+            List<iphlpapi.MIB_TCPROW_OWNER_PID> connections = ListHsConnections(processes);
             return new HsState(processes, connections);
         }
         public static void CloseConnectionsToServer()
