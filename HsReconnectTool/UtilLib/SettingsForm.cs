@@ -10,15 +10,38 @@ using System.Windows.Forms;
 
 namespace UtilLib
 {
-    public partial class Settings : Form
+    public partial class SettingsForm : Form
     {
-        public Settings()
+        public SettingsForm()
         {
             InitializeComponent();
 
+            disconnectMin.Value = SettingsFile.Default.DisconnectIntervalMin;
+            disconnectMax.Value = SettingsFile.Default.DisconnectIntervalMax;
+            disconnectButtonPosX.Value = SettingsFile.Default.CloseButtonPosX;
+            disconnectButtonPosY.Value = SettingsFile.Default.CloseButtonPosY;
+            disconnectButtonCheckbox.Checked = SettingsFile.Default.EnableDisconnectButton;
+            disablePrivilegeWarningCheckbox.Checked = SettingsFile.Default.DisablePrivilegeWarning;
+
             new ToolTip().SetToolTip(disconnectMin, "Minimal diconnect time in seconds");
-            new ToolTip().SetToolTip(disconnectMax, "Maximum diconnect time in seconds");
-            new ToolTip().SetToolTip(reconnectIntervalLabel, "if game crashes try to adjust those intervals");
+            new ToolTip().SetToolTip(disconnectMax, "Maximal diconnect time in seconds");
+            new ToolTip().SetToolTip(disconnectIntervalLabel, "if game crashes try to adjust those intervals");
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            SettingsFile.Default.DisconnectIntervalMin = disconnectMin.Value;
+            SettingsFile.Default.DisconnectIntervalMax = disconnectMax.Value;
+            SettingsFile.Default.CloseButtonPosX = disconnectButtonPosX.Value;
+            SettingsFile.Default.CloseButtonPosY = disconnectButtonPosY.Value;
+            SettingsFile.Default.EnableDisconnectButton = disconnectButtonCheckbox.Checked;
+            SettingsFile.Default.DisablePrivilegeWarning = disablePrivilegeWarningCheckbox.Checked;
+            SettingsFile.Default.Save();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

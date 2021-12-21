@@ -46,6 +46,12 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Firewall.cs" />
+    <Compile Include="SettingsFile.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>SettingsFile.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsFileProxy.cs" />
     <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,11 +62,15 @@
     <Compile Include="HsState.cs" />
     <Compile Include="iphlpapi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SettingsLoader.cs" />
     <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="SettingsFile.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>SettingsFile.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="SettingsForm.resx">

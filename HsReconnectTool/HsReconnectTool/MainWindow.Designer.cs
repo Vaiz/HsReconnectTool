@@ -37,6 +37,7 @@
             this.close_connection_button = new System.Windows.Forms.Button();
             this.github_link = new System.Windows.Forms.LinkLabel();
             this.float_button_checkBox = new System.Windows.Forms.CheckBox();
+            this.settingsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // hs_exe_label
@@ -98,9 +99,9 @@
             // 
             this.close_connection_button.BackColor = System.Drawing.Color.Salmon;
             this.close_connection_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.close_connection_button.Location = new System.Drawing.Point(406, 200);
+            this.close_connection_button.Location = new System.Drawing.Point(40, 300);
             this.close_connection_button.Name = "close_connection_button";
-            this.close_connection_button.Size = new System.Drawing.Size(320, 80);
+            this.close_connection_button.Size = new System.Drawing.Size(680, 80);
             this.close_connection_button.TabIndex = 6;
             this.close_connection_button.Text = "Close connection";
             this.close_connection_button.UseVisualStyleBackColor = false;
@@ -111,7 +112,7 @@
             this.github_link.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.github_link.AutoSize = true;
             this.github_link.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.github_link.Location = new System.Drawing.Point(684, 300);
+            this.github_link.Location = new System.Drawing.Point(684, 390);
             this.github_link.Name = "github_link";
             this.github_link.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.github_link.Size = new System.Drawing.Size(72, 25);
@@ -133,11 +134,23 @@
             this.float_button_checkBox.UseVisualStyleBackColor = true;
             this.float_button_checkBox.CheckedChanged += new System.EventHandler(this.float_reconnect_button_CheckedChanged);
             // 
+            // settingsButton
+            // 
+            this.settingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.settingsButton.Location = new System.Drawing.Point(400, 200);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(320, 80);
+            this.settingsButton.TabIndex = 9;
+            this.settingsButton.Text = "Settings";
+            this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 334);
+            this.ClientSize = new System.Drawing.Size(768, 424);
+            this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.float_button_checkBox);
             this.Controls.Add(this.github_link);
             this.Controls.Add(this.close_connection_button);
@@ -146,9 +159,10 @@
             this.Controls.Add(this.update_button);
             this.Controls.Add(this.hs_exe_status_label);
             this.Controls.Add(this.hs_exe_label);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(790, 390);
+            this.MinimumSize = new System.Drawing.Size(790, 480);
             this.Name = "MainWindow";
             this.Text = "HS Reconnect Tool";
             this.Load += new System.EventHandler(this.MainWindow_Load);
@@ -167,6 +181,7 @@
         private System.Windows.Forms.Button close_connection_button;
         private System.Windows.Forms.LinkLabel github_link;
         private System.Windows.Forms.CheckBox float_button_checkBox;
+        private System.Windows.Forms.Button settingsButton;
     }
 }
 

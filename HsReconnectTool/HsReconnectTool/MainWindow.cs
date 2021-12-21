@@ -14,6 +14,8 @@ namespace HsReconnectTool
             InitializeComponent();
             floatReconnectButton = new FloatReconnectButton();
             floatReconnectButton.Visible = float_button_checkBox.Checked;
+            SettingsFileProxy.Default.PropertyChanged += (s_, e_) => ReloadSettings();
+            ReloadSettings();
         }
         private void MainWindow_Load(object sender, EventArgs e)
         {
@@ -23,6 +25,11 @@ namespace HsReconnectTool
         private void UpdateHsInfo()
         {
             UpdateHsStatus();
+        }
+
+        private void ReloadSettings()
+        {
+            float_button_checkBox.Checked = SettingsFileProxy.Default.FloatingReconnectButtonEnabled;
         }
 
         private void UpdateHsStatus()
@@ -63,5 +70,11 @@ namespace HsReconnectTool
         {
             floatReconnectButton.Visible = float_button_checkBox.Checked;
         }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            (new SettingsForm()).Show();
+        }
+
     }
 }
