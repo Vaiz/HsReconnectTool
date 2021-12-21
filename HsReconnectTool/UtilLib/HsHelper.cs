@@ -10,10 +10,10 @@ namespace UtilLib
     public class HsHelper
     {
         static readonly HsHelper singletonInst = new HsHelper();
-        static readonly int DisconnectTimeoutMs = 4000;
 
         Firewall firewall;
         bool isForceDisconnected = false;
+        Random rnd = new Random();
 
         public static HsHelper Instance
         {
@@ -72,6 +72,8 @@ namespace UtilLib
         {
             isForceDisconnected = true;
 
+            int DisconnectTimeoutMs = rnd.Next(SettingsFile.Default.DisconnectIntervalMin * 1000, SettingsFile.Default.DisconnectIntervalMax * 1000);
+
             firewall.EnableRule();
             System.Threading.Thread.Sleep(DisconnectTimeoutMs);
             firewall.DisableRule();
@@ -80,6 +82,8 @@ namespace UtilLib
         }
         void DisconnectViaTcpMessage()
         {
+            int DisableButtonIntervalMs = 4000;
+
             HsState state = UpdateHsState();
             isForceDisconnected = true;
 
@@ -94,7 +98,7 @@ namespace UtilLib
                     MessageBox.Show(String.Format("Cannot close connection {0}\r\nError: {1}", c, error));
             }
 
-            System.Threading.Thread.Sleep(DisconnectTimeoutMs);
+            System.Threading.Thread.Sleep(DisableButtonIntervalMs);
             isForceDisconnected = false;
         }
         public void CloseConnectionsToServer()

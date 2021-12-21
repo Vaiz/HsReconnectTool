@@ -30,8 +30,8 @@ namespace UtilLib
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            SettingsFile.Default.DisconnectIntervalMin = disconnectMin.Value;
-            SettingsFile.Default.DisconnectIntervalMax = disconnectMax.Value;
+            SettingsFile.Default.DisconnectIntervalMin = (int)disconnectMin.Value;
+            SettingsFile.Default.DisconnectIntervalMax = (int)disconnectMax.Value;
             SettingsFile.Default.DisconnectButtonPosX = (int)disconnectButtonPosX.Value;
             SettingsFile.Default.DisconnectButtonPosY = (int)disconnectButtonPosY.Value;
             SettingsFile.Default.EnableDisconnectButton = disconnectButtonCheckbox.Checked;

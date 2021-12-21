@@ -2,10 +2,10 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="UtilLib" GeneratedClassName="SettingsFile">
   <Profiles />
   <Settings>
-    <Setting Name="DisconnectIntervalMin" Type="System.Decimal" Scope="User">
+    <Setting Name="DisconnectIntervalMin" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">8</Value>
     </Setting>
-    <Setting Name="DisconnectIntervalMax" Type="System.Decimal" Scope="User">
+    <Setting Name="DisconnectIntervalMax" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
     <Setting Name="DisconnectButtonPosX" Type="System.Int32" Scope="User">

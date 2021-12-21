@@ -26,9 +26,9 @@ namespace UtilLib {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("8")]
-        public decimal DisconnectIntervalMin {
+        public int DisconnectIntervalMin {
             get {
-                return ((decimal)(this["DisconnectIntervalMin"]));
+                return ((int)(this["DisconnectIntervalMin"]));
             }
             set {
                 this["DisconnectIntervalMin"] = value;
@@ -38,9 +38,9 @@ namespace UtilLib {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("10")]
-        public decimal DisconnectIntervalMax {
+        public int DisconnectIntervalMax {
             get {
-                return ((decimal)(this["DisconnectIntervalMax"]));
+                return ((int)(this["DisconnectIntervalMax"]));
             }
             set {
                 this["DisconnectIntervalMax"] = value;
