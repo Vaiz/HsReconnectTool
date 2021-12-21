@@ -8,10 +8,10 @@
     <Setting Name="DisconnectIntervalMax" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="CloseButtonPosX" Type="System.Decimal" Scope="User">
+    <Setting Name="DisconnectButtonPosX" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">50</Value>
     </Setting>
-    <Setting Name="CloseButtonPosY" Type="System.Decimal" Scope="User">
+    <Setting Name="DisconnectButtonPosY" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">50</Value>
     </Setting>
     <Setting Name="DisablePrivilegeWarning" Type="System.Boolean" Scope="User">

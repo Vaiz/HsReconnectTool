@@ -18,8 +18,8 @@ namespace UtilLib
 
             disconnectMin.Value = SettingsFile.Default.DisconnectIntervalMin;
             disconnectMax.Value = SettingsFile.Default.DisconnectIntervalMax;
-            disconnectButtonPosX.Value = SettingsFile.Default.CloseButtonPosX;
-            disconnectButtonPosY.Value = SettingsFile.Default.CloseButtonPosY;
+            disconnectButtonPosX.Value = SettingsFile.Default.DisconnectButtonPosX;
+            disconnectButtonPosY.Value = SettingsFile.Default.DisconnectButtonPosY;
             disconnectButtonCheckbox.Checked = SettingsFile.Default.EnableDisconnectButton;
             disablePrivilegeWarningCheckbox.Checked = SettingsFile.Default.DisablePrivilegeWarning;
 
@@ -32,8 +32,8 @@ namespace UtilLib
         {
             SettingsFile.Default.DisconnectIntervalMin = disconnectMin.Value;
             SettingsFile.Default.DisconnectIntervalMax = disconnectMax.Value;
-            SettingsFile.Default.CloseButtonPosX = disconnectButtonPosX.Value;
-            SettingsFile.Default.CloseButtonPosY = disconnectButtonPosY.Value;
+            SettingsFile.Default.DisconnectButtonPosX = (int)disconnectButtonPosX.Value;
+            SettingsFile.Default.DisconnectButtonPosY = (int)disconnectButtonPosY.Value;
             SettingsFile.Default.EnableDisconnectButton = disconnectButtonCheckbox.Checked;
             SettingsFile.Default.DisablePrivilegeWarning = disablePrivilegeWarningCheckbox.Checked;
             SettingsFile.Default.Save();

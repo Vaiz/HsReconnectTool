@@ -50,24 +50,24 @@ namespace UtilLib {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("50")]
-        public decimal CloseButtonPosX {
+        public int DisconnectButtonPosX {
             get {
-                return ((decimal)(this["CloseButtonPosX"]));
+                return ((int)(this["DisconnectButtonPosX"]));
             }
             set {
-                this["CloseButtonPosX"] = value;
+                this["DisconnectButtonPosX"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("50")]
-        public decimal CloseButtonPosY {
+        public int DisconnectButtonPosY {
             get {
-                return ((decimal)(this["CloseButtonPosY"]));
+                return ((int)(this["DisconnectButtonPosY"]));
             }
             set {
-                this["CloseButtonPosY"] = value;
+                this["DisconnectButtonPosY"] = value;
             }
         }
         

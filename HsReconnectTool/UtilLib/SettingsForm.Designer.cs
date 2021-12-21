@@ -73,7 +73,7 @@ namespace UtilLib
             0,
             0});
             this.disconnectMin.Name = "disconnectMin";
-            this.disconnectMin.Size = new System.Drawing.Size(60, 31);
+            this.disconnectMin.Size = new System.Drawing.Size(100, 31);
             this.disconnectMin.TabIndex = 1;
             this.disconnectMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.disconnectMin.Value = new decimal(new int[] {
@@ -86,7 +86,7 @@ namespace UtilLib
             // 
             this.disconnectMax.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.disconnectMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.disconnectMax.Location = new System.Drawing.Point(550, 34);
+            this.disconnectMax.Location = new System.Drawing.Point(590, 34);
             this.disconnectMax.Maximum = new decimal(new int[] {
             30,
             0,
@@ -98,7 +98,7 @@ namespace UtilLib
             0,
             0});
             this.disconnectMax.Name = "disconnectMax";
-            this.disconnectMax.Size = new System.Drawing.Size(60, 31);
+            this.disconnectMax.Size = new System.Drawing.Size(100, 31);
             this.disconnectMax.TabIndex = 2;
             this.disconnectMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.disconnectMax.Value = new decimal(new int[] {
@@ -138,14 +138,14 @@ namespace UtilLib
             0,
             0,
             0});
-            this.disconnectButtonPosY.Location = new System.Drawing.Point(550, 104);
+            this.disconnectButtonPosY.Location = new System.Drawing.Point(590, 104);
             this.disconnectButtonPosY.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.disconnectButtonPosY.Name = "disconnectButtonPosY";
-            this.disconnectButtonPosY.Size = new System.Drawing.Size(60, 31);
+            this.disconnectButtonPosY.Size = new System.Drawing.Size(100, 31);
             this.disconnectButtonPosY.TabIndex = 7;
             this.disconnectButtonPosY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.disconnectButtonPosY.Value = new decimal(new int[] {
@@ -170,7 +170,7 @@ namespace UtilLib
             0,
             0});
             this.disconnectButtonPosX.Name = "disconnectButtonPosX";
-            this.disconnectButtonPosX.Size = new System.Drawing.Size(60, 31);
+            this.disconnectButtonPosX.Size = new System.Drawing.Size(100, 31);
             this.disconnectButtonPosX.TabIndex = 6;
             this.disconnectButtonPosX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.disconnectButtonPosX.Value = new decimal(new int[] {
@@ -239,7 +239,7 @@ namespace UtilLib
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 394);
+            this.ClientSize = new System.Drawing.Size(698, 394);
             this.Controls.Add(this.disconnectButtonLabel);
             this.Controls.Add(this.disconnectButtonCheckbox);
             this.Controls.Add(this.cancelButton);

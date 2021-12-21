@@ -31,6 +31,23 @@ namespace UtilLib
             set
             {
                 SettingsFile.Default.EnableDisconnectButton = value;
+                SettingsFile.Default.Save();
+            }
+        }
+
+        public System.Drawing.Point FloatingReconnectButtonPosition
+        {
+            get
+            {
+                return new System.Drawing.Point(
+                    SettingsFile.Default.DisconnectButtonPosX,
+                    SettingsFile.Default.DisconnectButtonPosY);
+            }
+            set
+            {
+                SettingsFile.Default.DisconnectButtonPosX = value.X;
+                SettingsFile.Default.DisconnectButtonPosY = value.Y;
+                SettingsFile.Default.Save();
             }
         }
     }
