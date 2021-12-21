@@ -78,6 +78,7 @@ namespace HsReconnectTool
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
+            SettingsFileProxy.Default.FloatingReconnectButtonPosition = floatReconnectButton.Location;
             (new SettingsForm()).Show();
         }
 
